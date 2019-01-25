@@ -1,0 +1,266 @@
+<div #mainElement id="content">
+  <div class="pull-left">
+    <strong>ICCID </strong>
+    <span>{{simDetail.iccid}}</span>
+    <div>
+      <strong>Status </strong>
+      <span>{{simDetail.network.networkInformation}}</span>
+    </div>
+  </div>
+  <h3>CLIENT INFORMATION</h3>
+  <div style="margin-left: 10px">
+
+    <div>
+      <strong style="color:blue; font-size: 20px">
+        Client name
+      </strong>
+      <span>
+      {{simDetail.clientName}}
+    </span>
+    </div>
+    <div>
+      <strong style="color:blue">
+        Create Date
+      </strong>
+      <span>
+      {{simDetail.createdDate | amLocale:'en' | amDateFormat:'MMMM Do YYYY'}}
+    </span>
+    </div>
+
+    <div>
+      <strong style="color:blue">
+        Production Date
+      </strong>
+      <span>
+      {{simDetail.productionDate | amLocale:'en' | amDateFormat:'MMMM Do YYYY'}}
+    </span>
+    </div>
+
+    <div>
+      <strong style="color:blue">
+        Provisioning
+      </strong>
+      <span>
+      {{simDetail.network.currentProvisioningStatus}}
+    </span>
+    </div>
+    <div>
+      <strong style="color:blue">
+        Country
+      </strong>
+      <span>
+      {{simDetail.clientOrgCountry}}
+    </span>
+    </div>
+    <div>
+      <strong style="color:blue">
+        MSISDN
+      </strong>
+      <span>
+      {{simDetail.msisdn}}
+    </span>
+    </div>
+    <div>
+      <strong style="color:blue">
+        IMEI
+      </strong>
+      <span>
+      {{simDetail.imei}}
+    </span>
+    </div>
+    <div>
+      <strong style="color:blue">
+        IMSI
+      </strong>
+      <span>
+      {{simDetail.imsi}}
+    </span>
+    </div>
+
+  </div>
+  <hr>
+  <h3>NETWORK INFORMATION</h3>
+  <div style="margin-left: 10px">
+
+    <div>
+      <strong style="color:blue; font-size: 20px">
+        IP Address
+      </strong>
+      <span>
+      {{simDetail.network.ipAddress}}
+    </span>
+    </div>
+    <div>
+      <strong style="color:blue">
+        MSC
+      </strong>
+      <span>
+      {{simDetail.network.msc}}
+    </span>
+    </div>
+
+    <div>
+      <strong style="color:blue">
+        GGSN IP Address
+      </strong>
+      <span>
+      {{simDetail.network.ggsnIpAddress}}
+    </span>
+    </div>
+
+    <div>
+      <strong style="color:blue">
+        SGSN IP Address
+      </strong>
+      <span>
+      {{simDetail.network.sgsnIpAddress}}
+    </span>
+    </div>
+    <div>
+      <strong style="color:blue">
+        Current Operator
+      </strong>
+      <span>
+      {{simDetail.network.currentOperator}}
+    </span>
+    </div>
+    <div>
+      <strong style="color:blue">
+        Data Service
+      </strong>
+      <span>
+      {{simDetail.network.currentNetworkSpeed}}
+    </span>
+    </div>
+    <div>
+      <strong style="color:blue">
+        Last Location
+      </strong>
+      <span>
+      {{simDetail.network.lastLocation}}
+    </span>
+    </div>
+    <div>
+      <strong style="color:blue">
+        Last Seen
+      </strong>
+      <span>
+      {{simDetail.network.lastSeen | amLocale:'en' | amDateFormat:'MMMM Do YYYY'}}
+    </span>
+    </div>
+
+  </div>
+  <hr>
+  <h3>SERVICE INFORMATION</h3>
+  <div style="margin-left: 10px">
+    <div>
+      <strong style="color:blue; font-size: 20px">
+        Service profile
+      </strong>
+
+      <span>
+        Domestic only
+      </span>
+    </div>
+
+    <!-- table sub-header -->
+    <div>
+      <strong style="color:blue">
+        IMEI Locked
+      </strong>
+      <span>
+        {{simDetail.service.isImeiLock}}
+      </span>
+    </div>
+
+    <div>
+      <strong style="color:blue">
+        4G
+      </strong>
+      <span>
+          {{simDetail.service.is4gAllowed}}
+        </span>
+    </div>
+    <div>
+      <strong style="color:blue">
+        3G
+      </strong>
+      <span>
+          {{simDetail.service.is3gAllowed}}
+        </span>
+    </div>
+
+    <div>
+      <strong style="color:blue">
+        SMS MO
+      </strong>
+      <span>{{simDetail.service.isSmsMoAllowed}}</span>
+    </div>
+
+    <div>
+      <strong style="color:blue">SMS MT</strong>
+      <span>{{simDetail.service.isSmsMtAllowed}}</span>
+    </div>
+  </div>
+  <hr>
+
+  <h3>USAGE INFORMATION</h3>
+  <strong>Data</strong>
+  <div>
+  <span
+    class="progress-result">{{ dataConsumed | number: '1.0-0'}}/{{simDetail.usage.data.limit | number: '1.0-0'}}</span>
+    <div>
+      <span class="text">Down</span>
+      <span>{{simDetail.usage.data.downUsed | number: '1.0-0'}}</span>
+
+      <span class="text">Up</span>
+      <span>{{simDetail.usage.data.upUsed | number: '1.0-0'}}</span>
+    </div>
+  </div>
+  <strong>SMS</strong>
+  <div>
+    <span class="progress-result">{{ smsConsumed | number: '1.0-0'}}</span>
+    <div>
+      <span class="text">Sent</span>
+      <span>{{simDetail.usage.sms.sent | number: '1.0-0'}}</span>
+
+      <span class="text">Received</span>
+      <span>{{simDetail.usage.sms.received | number: '1.0-0'}}</span>
+    </div>
+  </div>
+  <hr>
+  <h3>SMS Log</h3>
+
+  <div class="form-group mb-0 notification-box-head-wrap">
+    <div class="logs_holder">
+      <div class="log_col_holder log-wrapper" *ngFor="let log of simDetail.smsStatusLog">
+        <div class="icon-holder">
+          <strong>Type</strong> <span class="label">{{log.type | slice:0:2}}</span>
+        </div>
+        <div class="log-text-holder">
+          <strong class="event-heading txt-dark">{{log.submitDate | amLocale:'en' | amDateFormat:'MMMM dd YYYY, h:mm A'}}</strong>
+          <strong class="event-heading txt-dark">{{log.status}}</strong>
+          <p class="desc">{{log.message}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <h3>Sim Events</h3>
+
+  <div class="log-wrapper" *ngFor="let event of simDetail.events">
+    <div class="icon-holder">
+      <strong>type</strong>
+      <span class="label" [ngClass]="{
+    'icon-event-info' : (event.type === 'INFO' || event.type === 'info'),
+   'icon-event-sms' : event.type === 'sms',
+   'icon-event-danger' : event.type === 'warning',
+   'icon-event-locked' : event.type === 'warning'} ">{{event.type}}</span>
+    </div>
+    <div class="log-text-holder">
+      <strong class="event-heading txt-dark">{{event.timestamp | amLocale:'en' | amDateFormat:'MMMM DD, YYYY h:mm a'}}</strong>
+      <p class="desc">{{event.description}}</p>
+    </div>
+  </div>
+
+</div>

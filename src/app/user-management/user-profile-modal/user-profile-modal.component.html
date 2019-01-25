@@ -1,0 +1,50 @@
+
+  <div class="modal-dialog panel-heading">
+      <div class="modal-content panel panel-default">
+  <div class="modal-header panel-heading">
+    <h4 class="modal-title">{{userData.header}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal(userInfo)">
+      <i aria-hidden="true" class="ti-close"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="userInfoForm">
+      <div class="form-group">
+        <label class="control-label mb-10">Name</label>
+        <input type="text" [(ngModel)]="userData.user.firstName" formControlName="firstName" class="form-control"  name="Name" >
+        <div *ngIf="!userInfoForm.controls['firstName'].valid && userInfoForm.controls['firstName'].touched "  class="text-danger">Name is required</div>
+      </div>
+      <div class="form-group">
+        <label class="control-label mb-10">Email</label>
+        <input type="email" [(ngModel)]="userData.user.email" formControlName="email"  class="form-control"  name="Email"  >
+        <div *ngIf="!userInfoForm.controls['email'].valid && userInfoForm.controls['email'].touched " class="text-danger">email is required</div>
+      </div>
+      <div class="form-group">
+        <label type="tel" class="control-label mb-10" >Phone Number</label>
+        <input autocomplete="false" [(ngModel)]="userData.user.phone" [textMask]="{mask: mask}" formControlName="phone"  class="form-control"  name="PhoneNumber"  >
+        <div *ngIf="!userInfoForm.controls['phone'].valid && userInfoForm.controls['phone'].touched " class="text-danger">Phone is required</div>
+      </div>
+      <div class="form-group">
+        <label class="control-label mb-10">Password</label>
+        <div class="input-group">
+          <input [type]="getPasswordType()" formControlName="password"  class="form-control"  name="password"  >
+          <button type="button" (click)="toggleShowPassword()">{{ showPassword ? 'Hide': 'Show'}}</button>
+       </div>
+        <div *ngIf="!userInfoForm.controls['password'].valid && userInfoForm.controls['password'].touched" class="text-danger">Password is required</div>
+      </div>
+      <div class="form-group">
+        <label class="control-label mb-10">Confirm Password</label>
+        <div class="input-group">
+          <input [type]="getPasswordType()"  formControlName="cpassword"  class="form-control"  name="cpassword"  >
+          <button type="button" (click)="toggleShowPassword()"> {{ showPassword ? 'Hide': 'Show'}}</button>
+        </div>
+        <div *ngIf="passwordNotMatched && userInfoForm.controls['cpassword'].touched"  class="text-danger">Password don't match</div>
+      </div>
+      <div class="form-group cta_holder">
+        <button *ngIf="userData.block && userData.user.type === '0'" (click)="onBlock()" class="btn btn-secondary">{{userData.user.isBlocked ? 'UNBLOCK' : 'BLOCK'}}</button>
+        <button (click)="onSubmit()" [disabled]="(passwordNotMatched || userInfoForm.invalid) "  class="btn btn-primary">SAVE</button>
+      </div>
+    </form>
+  </div>
+  </div>
+  </div>

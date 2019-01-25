@@ -1,0 +1,17 @@
+<div class="panel panel-default border-panel card-view">
+  <div class="panel-heading">
+    <div class="pull-left">
+      <h6 class="panel-title txt-dark">Event Log</h6>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="panel-wrapper collapse in scroll-wrapper row">
+    <div class="panel-body">
+      <!-- <div *ngFor="let event of eventList" >
+        <strong class="txt-dark">{{event.timestamp | amLocale:'en' | amDateFormat:'MMMM Do YYYY, h:mm a'}}</strong>
+        <p>{{event.shortDescription}}</p>
+      </div> -->
+      <app-events-log [events]="eventList"></app-events-log>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="log-wrapper" *ngFor="let event of events" >
+  <div class="icon-holder">
+   <span class="label icon-event-info" > 
+  </span>
+  </div>
+  <div class="log-text-holder">
+      <strong class="event-heading txt-dark">{{event.timestamp | dateFormat}}</strong>
+      <p class="desc">{{event.description}}</p>
+  </div>
+</div>

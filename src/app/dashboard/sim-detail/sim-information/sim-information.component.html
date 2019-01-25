@@ -1,0 +1,146 @@
+<div class="info_list_holder">
+  <h3>CLIENT INFORMATION</h3>
+  <ul class="info_list">
+    <li>
+      <span class="sub_title">Client</span>
+      <span class="sub_text">{{simInfo.clientName ? simInfo.clientName : 'N/A'}}</span>
+    </li>
+    <li>
+      <span class="sub_title">Create Date</span>
+      <span class="sub_text">{{ simInfo.createdDate | amLocale:'en' | amDateFormat:'MMMM Do YYYY'}}</span>
+    </li>
+    <li>
+      <span class="sub_title">Production Date</span>
+      <span class="sub_text">{{simInfo.productionDate | amLocale:'en' | amDateFormat:'MMMM Do YYYY'}}</span>
+    </li>
+    <li>
+      <span class="sub_title">SIM Provisioning</span>
+      <span class="sub_text">{{simInfo.network.currentProvisioningStatus ? simInfo.network.currentProvisioningStatus : 'N/A'}}</span>
+    </li>
+    <li>
+      <span class="sub_title">Country</span>
+      <span class="sub_text">{{simInfo.clientOrgCountry ? simInfo.clientOrgCountry : 'N/A'}}</span>
+    </li>
+    <li>
+      <span class="sub_title">MSISDN</span>
+      <span class="sub_text">{{simInfo.msisdn ? simInfo.msisdn : 'N/A'}}</span>
+    </li>
+    <li>
+      <span class="sub_title">IMEI</span>
+      <span class="sub_text">{{simInfo.imei ? simInfo.imei : 'N/A'}}</span>
+    </li>
+    <li>
+      <span class="sub_title">IMSI</span>
+      <span class="sub_text">{{simInfo.imsi ? simInfo.imsi : 'N/A'}}</span>
+    </li>
+  </ul>
+</div>
+<div class="info_list_holder">
+  <h3>NETWORK INFORMATION (Current endpoint)</h3>
+  <ul class="info_list">
+    <li>
+      <span class="sub_title">IP Address</span>
+      <span class="sub_text">{{simInfo.network.ipAddress ? simInfo.network.ipAddress : 'N/A' }}</span>
+    </li>
+    <li>
+      <span class="sub_title">MSC</span>
+      <span class="sub_text">{{simInfo.network.msc ? simInfo.network.msc : 'N/A'}}</span>
+    </li>
+
+    <li>
+      <span class="sub_title">GGSN IP address</span>
+      <span class="sub_text">{{simInfo.network.ggsnIpAddress ? simInfo.network.ggsnIpAddress : 'N/A'}}</span>
+    </li>
+    <li>
+      <span class="sub_title">SGSN IP address</span>
+      <span class="sub_text">{{simInfo.network.sgsnIpAddress ? simInfo.network.sgsnIpAddress : 'N/A'}}</span>
+    </li>
+    <li>
+      <span class="sub_title">Current Operator</span>
+      <span class="sub_text">{{simInfo.network.currentOperator ? simInfo.network.currentOperator : 'N/A'}}</span>
+    </li>
+    <li>
+      <span class="sub_title">Data Service</span>
+      <span class="sub_text">{{simInfo.network.currentNetworkSpeed ? simInfo.network.currentNetworkSpeed : 'N/A'}}</span>
+    </li>
+    <li>
+      <span class="sub_title">Last Location</span>
+      <span class="sub_text">{{simInfo.network.lastLocation ? simInfo.network.lastLocation : 'N/A'}}</span>
+    </li>
+    <li>
+      <span class="sub_title">Last Seen</span>
+      <span class="sub_text">{{simInfo.network.lastSeen ? (simInfo.network.lastSeen | dateFormat ) : 'N/A' }}</span>
+    </li>
+  </ul>
+</div>
+<div class="info_list_holder">
+  <h3>SERVICE INFORMATION</h3>
+  <div class="row">
+    <div class="col-xs-3 col-lg-3">
+      <span class="sub_title">Service Profile</span>
+      <span class="sub_text">Domestic only</span>
+    </div>
+    <div class="col-xs-9 col-lg-9">
+      <ul class="service_list">
+        <li>
+          <button class="rounded-btn imei_cta" [ngClass]="{grey : !simInfo.service.isImeiLock, green: simInfo.service.isImeiLock}">IMEI LOCK</button>
+        </li>
+        <li>
+          <button class="rounded-btn cta_3g" [ngClass]="{grey: !simInfo.service.is3gAllowed, green: simInfo.service.is3gAllowed}">3G</button>
+        </li>
+        <li>
+          <button class="rounded-btn cta_4g" [ngClass]="{grey: !simInfo.service.is4gAllowed, green: simInfo.service.is4gAllowed}">4G</button>
+        </li>
+        <li>
+          <button class="rounded-btn sms_mo_cta" [ngClass]="{grey: !simInfo.service.isSmsMoAllowed, green: simInfo.service.isSmsMoAllowed}">SMS MO</button>
+        </li>
+        <li>
+          <button class="rounded-btn sms_mt_cta" [ngClass]="{grey: !simInfo.service.isSmsMtAllowed, green: simInfo.service.isSmsMtAllowed}">SMS MT</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="info_list_holder">
+  <h3>USAGE INFORMATION</h3>
+  <div class="row">
+    <div class="col-sm-6 col-md-6 col-lg-6 dataslider">
+      <span class="sub_title">Data (MB)</span>
+      <div class="progressbar_holder" *ngIf="simInfo.usage.data.limit">
+        <nouislider #uiDataSliderProgress [connect]="true" [config]="sliderConfig" [min]="0" [max]="100" [(ngModel)]="dataRange"
+          [disabled]="true"></nouislider>
+        <span class="progress-result">{{ dataConsumed | number: '1.0-0'}}/{{simInfo.usage.data.limit | number: '1.0-0'}}</span>
+      </div>
+      <!-- <span *ngIf="!simInfo.usage.data.limit">N/A</span> -->
+      <ul class="dataslider_info">
+        <li>
+          <span class="text">Down</span>
+          <span>{{simInfo.usage.data.downUsed ? (simInfo.usage.data.downUsed | number: '1.0-0') : 'N/A'}}</span>
+        </li>
+        <li>
+          <span class="text">Up</span>
+          <span>{{simInfo.usage.data.upUsed ? (simInfo.usage.data.upUsed | number: '1.0-0') : 'N/A'}}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-6 dataslider smsslider">
+      <span class="sub_title">SMS</span>
+      <div class="progressbar_holder" *ngIf="smsTotal">
+        <nouislider #uiSmsSliderProgress [connect]="true" [config]="sliderConfig" [min]="0" [max]="100" [disabled]="true" [(ngModel)]="smsRange"></nouislider>
+        <span class="progress-result">{{ smsConsumed | number: '1.0-0'}}</span>
+        <!-- <span *ngIf="!smsTotal">N/A</span> -->
+      </div>
+      <ul class="dataslider_info">
+        <li>
+          <span class="text">Sent</span>
+          <span>{{simInfo.usage.sms.sent ? (simInfo.usage.sms.sent | number: '1.0-0') : 'N/A' }}</span>
+        </li>
+        <li>
+          <span class="text">Received</span>
+          <span>{{ simInfo.usage.sms.received ? (simInfo.usage.sms.received | number: '1.0-0') : 'N/A'}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="nav_holder">
+    <div class="nav-header ">
+      <strong class="logo-wrap">
+        <a routerLink="/">
+          <img class="img-responsive" src="assets/images/logo-telus.svg" alt="logo">
+        </a>
+      </strong>
+      <form role="search" class="top-nav-search" *ngIf="router.url === '/dashboard' || router.url === '/organizations'">
+        <div class="input-group">
+          <input type="text" [formControl]="searchField" name="example-input1-group2" class="nav-search form-control" placeholder="Search by ICCID"
+            (keyup.enter)="getSearchResultsOnEnter(searchField.value)">
+          <span class="input-group-btn" (click)="getSearchResultsOnEnter(searchField.value)">
+            <button type="button" class="btn  btn-default">
+              <i class="zmdi zmdi-search"></i>
+            </button>
+          </span>
+        </div>
+        <div class="input-group">
+          <input type="text" [formControl]="searchField" name="example-input1-group2" class="nav-search form-control" placeholder="Search by EID"
+            (keyup.enter)="getSearchResultsOnEnter(searchField.value)">
+          <span class="input-group-btn" (click)="getSearchResultsOnEnter(searchField.value)">
+            <button type="button" class="btn  btn-default">
+              <i class="zmdi zmdi-search"></i>
+            </button>
+          </span>
+        </div>
+      </form>
+      <span class="centered under-line" *ngIf="router.url === '/userManagement'">
+        <span class="divider"></span>
+        <a routerLink="/dashboard">GO TO DASHBOARD</a>
+      </span>
+    </div>
+    <div class="user_area">
+      <strong class="user_name txt-dark">{{profileData.firstName}}</strong>
+      <ul class="nav navbar-right top-nav">
+        <li dropdown class="dropdown auth-drp">
+          <a dropdownToggle href="javascript:void(0)" class="dropdown-toggle pr-0">
+            <img src="/assets/images/user-profile-logo.svg" alt="user_auth" class="user-auth-img img-responsive">
+            <span class="user-online-status"></span>
+          </a>
+          <ul *dropdownMenu class="dropdown-menu user-auth-dropdown">
+            <li>
+              <a href="javascript:void(0)" (click)="openProfileModal(userInfo)">
+                <i class="icon-user"></i>
+                <span>Profile</span>
+              </a>
+            </li>
+            <li *ngIf="userType === '1' ">
+              <a [routerLink]="['/userManagement']" href="javascript:void(0)">
+                <i class="icon-settings"></i>
+                <span>User Management</span>
+              </a>
+            </li>
+            <li>
+              <a (click)="logout()" href="javascript:void(0)">
+                <i class="icon-logout1"></i>
+                <span>Log Out</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div bsModal #userInfo="bs-modal" [config]="{backdrop: true}" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <app-user-profile-modal [userInfo]="userInfo" (valueChange)="editProfileInfo($event)" [userData]="userData"></app-user-profile-modal>
+</div>

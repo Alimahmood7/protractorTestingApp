@@ -1,0 +1,48 @@
+.tarrif-profile-container {
+  width: auto;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #dedede;
+  margin-bottom: 20px;
+  .operator-title {
+    display: block;
+    color: #212121;
+    border-bottom: 2px solid #dedede;
+    padding: 4px 0 5px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .operator-desc {
+    padding: 5px 0 0;
+    font-size: 12px;
+    font-weight: 700;
+    color: #212121;
+    line-height: 15px;
+  }
+  .col-md-8, .col-md-4 {
+    padding: 0;
+  }
+  .table > thead > tr > th {
+    padding: 5px 0;
+    font-size: 14px;
+    font-weight: 700;
+    .region-heading{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 130px;
+    }
+    &:nth-child(1){
+      width:120px;
+    }
+    &:nth-child(2){
+      width:150px;
+    }
+  }
+  .table > tbody > tr > td {
+    border: 0;
+    padding: 5px 0 0;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 400;
+  }
+}

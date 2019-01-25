@@ -1,0 +1,68 @@
+.scroll-wrapper {
+  height: calc(100vh - 160px);
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.summery-block{
+  width: 100%;
+  border: 1px solid #DCDCDC;
+  padding: 18px 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 1100px) {
+    padding: 5px 8px;
+  }
+}
+
+.data-wrap-left{
+  text-align: left;
+  padding-left: 5px;
+  h2{
+    font-size: 46px;
+    line-height: 1;
+    margin-bottom: 0;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    @media (max-width: 1200px) {
+      font-size: 36px;
+    }
+  }
+}
+.data-wrap-right{
+  .data-icon{
+    display: block;
+    &:before{
+      font-family: 'telus-icons' !important;
+      color: #DCDCDC;
+    }
+    &.data-icon-active-sim{
+      &:before{
+        content: "\e914";
+        font-size: 50px;
+        @media (max-width: 1200px) {
+          font-size: 40px;
+        }
+      }
+    }
+    &.data-icon-org{
+      &:before{
+        content: "\e913";
+        font-size: 50px;
+        @media (max-width: 1200px) {
+          font-size: 40px;
+        }
+      }
+    }
+    &.data-icon-sim{
+      &:before{
+        content: "\e912";
+        font-size: 50px;
+        @media (max-width: 1200px) {
+          font-size: 40px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<ng4-loading-spinner> </ng4-loading-spinner>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default card-view">
+      <div class="panel-heading">
+        <div class="pull-left">
+          <h6 class="panel-title txt-dark">Sort</h6>
+          <input type="text">
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="panel-wrapper collapse in scroll-wrapper row">
+        <div class="panel-body">
+          <div class="table-wrap">
+            <div class="table-responsive">
+              <table class="table table-hover mb-0">
+                <thead>
+                  <tr>
+                    <th>
+                      Name of the company
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let org of organizationList">
+                    <td>
+                      <span class="iccid-num">{{org}}</span>
+                    </td>
+                    <td class="sms-link">
+                      <span>
+                        <a routerLink="/dashboard">Dashboard</a>
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

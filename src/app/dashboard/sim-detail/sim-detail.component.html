@@ -1,0 +1,51 @@
+<div ngDraggable   [position]="defaultPosition" class="draggable_box" [ngClass]= "{'active focus': div.isActive === true }" *ngFor="let div of openedSimDetailArray; let i = index "
+(click)="onSelected(i)">
+  <div class="panel panel-default card-view" >
+    <div class="panel-heading">
+      <div class="pull-left heading-text">
+        <span class="status_box" [ngClass]="{'online': div.network.networkInformation === 'online' || div.network.networkInformation === 'ONLINE',
+        'offline': div.network.networkInformation === 'OFFLINE' || div.network.networkInformation === 'offline',
+        'attached': div.network.networkInformation === 'ATTACHED'
+        }" >{{div.network.networkInformation}}</span>
+        <span class="panel-title-id">
+          <em class="text">ICCID </em>
+          {{div.iccid}}
+        </span>
+      </div>
+      <div class="pull-right left_section">
+        <span class="btn_close" (click)="CloseDiv(i)">
+          <i class="ti-close"></i>
+        </span>
+      </div>
+    </div>
+    <div class="panel-wrapper collapse in">
+      <div class="panel-body">
+        <div class="tab-struct custom-tab-2">
+          <tabset #simDetailTabs >
+            <tab heading="INFORMATION" id="tab1">
+              <app-sim-information [simInfo]="div"></app-sim-information>
+            </tab>
+            <tab (select)="onSelectTProfile(i)" heading="TARIFF PROFILE">
+              <app-tarrif-profile class="section_holder" [tariffProfileArray]="div.tariffProfile"></app-tarrif-profile>
+            </tab>
+            <tab [active]="smsTab" heading="SMS">
+              <app-send-message class="section_holder" (valueChange)="onSMSLogLoaded($event)" [index]="i" [endpointId]="div.endpointId" [subOrgId]="div.subOrgId"></app-send-message>
+            </tab>
+            <tab (select)="onSelectEvent(i)" heading="EVENT LOG">
+              <app-events-log class="section_holder section_holder2" [events]="div.events"></app-events-log>
+            </tab>
+          </tabset>
+        </div>
+        <div class="cta_lists" >
+          <button class="btn btn-secondary" (click)="onExportData(i)">Export</button>
+          <button class="btn btn-secondary" (click)="onUpdateSimStatus(i)">{{div.network.currentProvisioningStatus === 'Suspended'?'Activate ':'Suspend '}} SIM</button>
+          <button class="btn btn-primary rotting-btn" (click)="onRefresh(i)"><img class="img-responsive rotating-img" src="/assets/images/refresh_icon.png" alt=""><span>Refreshing in {{div.count < 20 ? div.count : ''}}</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="exportData">
+    <app-export-detail [simDetail]="exportData" (valueChange)="onDataExported()"></app-export-detail>
+</div>
+

@@ -1,0 +1,24 @@
+<div *ngIf="router.url === '/dashboard' || router.url === '/userManagement' || router.url === '/organizations'">
+    <div>
+        <app-navbar></app-navbar>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="scroll_col col-md-8 col-sm-8 block-1">
+            <div class="summery-holder row">
+                <div class="summary-wrapper col-lg-4 col-md-6 col-sm-6" *ngFor="let detail of detailArray">
+                    <app-summery [detail]="detail"></app-summery>
+                </div>
+            </div>
+            <router-outlet name="dashboard"></router-outlet>
+            <!-- <app-table></app-table> -->
+        </div>
+
+        <div class="scroll_col col-md-4 col-sm-4 block-2">
+            <app-events [eventList]="events"></app-events>
+        </div>
+        <div>
+            <app-sim-detail></app-sim-detail>
+        </div>
+    </div>
+</div>

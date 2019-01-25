@@ -1,0 +1,16 @@
+<div class="summery-block">
+  <div class="data-wrap-left">
+    <h2 class="txt-dark block counter">
+      <span class="counter-anim">{{detail.value}}</span>
+    </h2>
+    <a routerLink="/organizations">
+      <span class="uppercase-font block">{{detail.title}}</span>
+    </a>
+  </div>
+  <div class="data-wrap-right">
+    <i class="data-icon" [ngClass]="{
+                'data-icon-sim' : detail.title === 'Sims',
+                'data-icon-org' : detail.title === 'Organizations',
+                'data-icon-active-sim' : detail.title === 'Active Sims' } "></i>
+  </div>
+</div>

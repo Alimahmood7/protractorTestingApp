@@ -1,0 +1,11 @@
+<div class="alerts-holder" [ngClass]="{'active': showErrorAlert === true }">
+  <div class="error">
+    <i class="fa fa-warning"></i> 
+    <div class="text-holder">
+      <strong>Error</strong>
+      <span>{{errorMessage}}</span>
+    </div>
+    
+    <a class="ti-close btn_close" (click)="onCloseErrorModel()"></a>
+  </div>
+</div>
