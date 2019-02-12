@@ -1,0 +1,47 @@
+.notification-box-head-wrap {
+  overflow: hidden;
+  .input-group {
+    border: 1px solid rgba(33, 33, 33, 0.12);
+    .form-control {
+      border: 0;
+      height: 35px;
+    }
+  }
+  .input-group-btn {
+    .btn {
+      min-width: 100px;
+      padding: 7px 10px;
+      font-size: 12px;
+      line-height: 20px;
+      > span {
+        display: block;
+      }
+      .telus-icon-send-arrow {
+        padding-right: 15px;
+        font-size: 20px;
+        line-height: 20px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: -3px;
+      }
+    }
+  }
+  .logs_holder {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 34vh;
+  }
+  .control-label{
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 0 !important;
+  }
+  .control-label2 {
+    border-bottom: 2px solid #dcdcdc;
+  }
+  .log_col_holder {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+}

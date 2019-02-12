@@ -1,9 +1,19 @@
 import { Router } from '@angular/router';
+<<<<<<< HEAD
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { DashboardService } from '../core/services/dashboard.service';
 import { StoreService } from '../core/services/store.service';
 import { errors } from '../core/error.messages';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+=======
+import { Events } from './../core/interfaces/events.interface';
+import { Component, OnInit } from '@angular/core';
+import { DashboardService } from '../core/services/dashboard.service';
+import { Summery, SummeryDetail } from '../core/interfaces/Summery.interface';
+import { Details } from '../shared/detail.model';
+import { StoreService } from '../core/services/store.service';
+import { errors } from '../core/error.messages';
+>>>>>>> 0f8111293c522a76e4ccad0b0a175c57078ce48b
 
 @Component({
   selector: 'app-dashboard',

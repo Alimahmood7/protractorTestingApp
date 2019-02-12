@@ -22,38 +22,38 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ModalModule } from 'ngx-bootstrap';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    DateFormatPipe,
-    LoginComponent,
-    DashboardComponent,
-    PageNotFoundComponent,
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    BsDropdownModule.forRoot(),
-    ModalModule.forRoot(),
-    TabsModule.forRoot(),
-    AppRoutingModule,
-    PaginationModule.forRoot()
-  ],
-  providers: [
-    DashboardService,
-    AuthGuard,
-    AdminGuard,
-    LoginGuard,
-    AuthenticationService,
-    StoreService,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: GmcHttpInterceptor,
-      multi: true,
-    },
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavbarComponent,
+        DateFormatPipe,
+        LoginComponent,
+        DashboardComponent,
+        PageNotFoundComponent,
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        BsDropdownModule.forRoot(),
+        ModalModule.forRoot(),
+        TabsModule.forRoot(),
+        AppRoutingModule,
+        PaginationModule.forRoot()
+    ],
+    providers: [
+        DashboardService,
+        AuthGuard,
+        AdminGuard,
+        LoginGuard,
+        AuthenticationService,
+        StoreService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: GmcHttpInterceptor,
+            multi: true,
+        },
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

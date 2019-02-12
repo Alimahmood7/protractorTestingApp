@@ -1,0 +1,26 @@
+{
+    "/dashboard": {
+      "target": "https://gmc-api.mobilelive.ca",
+      "secure": true,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    },
+    "/user": {
+      "target": "https://gmc-login.mobilelive.ca",
+      "secure": true,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    },
+    "/search": {
+        "target": "https://gmc-api.mobilelive.ca",
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug"
+      },
+      "/events": {
+        "target": "https://gmc-api.mobilelive.ca",
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug"
+      }
+  }

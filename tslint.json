@@ -31,7 +31,12 @@
         ]
       }
     ],
+<<<<<<< HEAD
     "no-consecutive-blank-lines": false,
+=======
+    "no-arg": true,
+    "no-bitwise": true,
+>>>>>>> 0f8111293c522a76e4ccad0b0a175c57078ce48b
     "no-console": [
       true,
       "debug",
@@ -40,11 +45,21 @@
       "timeEnd",
       "trace"
     ],
+<<<<<<< HEAD
     "no-empty": false,
+=======
+    "no-construct": true,
+    "no-debugger": true,
+    "no-duplicate-super": true,
+    "no-empty": false,
+    "no-empty-interface": true,
+    "no-eval": true,
+>>>>>>> 0f8111293c522a76e4ccad0b0a175c57078ce48b
     "no-inferrable-types": [
       true,
       "ignore-params"
     ],
+<<<<<<< HEAD
     "no-non-null-assertion": true,
     "no-redundant-jsdoc": true,
     "no-switch-case-fall-through": true,
@@ -56,11 +71,77 @@
     ],
     "object-literal-sort-keys": false,
     "ordered-imports": false,
+=======
+    "no-misused-new": true,
+    "no-non-null-assertion": true,
+    "no-shadowed-variable": true,
+    "no-string-literal": false,
+    "no-string-throw": true,
+    "no-switch-case-fall-through": true,
+    "no-trailing-whitespace": true,
+    "no-unnecessary-initializer": true,
+    "no-unused-expression": true,
+    "no-use-before-declare": true,
+    "no-var-keyword": true,
+    "object-literal-sort-keys": false,
+    "one-line": [
+      true,
+      "check-open-brace",
+      "check-catch",
+      "check-else",
+      "check-whitespace"
+    ],
+    "prefer-const": true,
+>>>>>>> 0f8111293c522a76e4ccad0b0a175c57078ce48b
     "quotemark": [
       true,
       "single"
     ],
+<<<<<<< HEAD
     "trailing-comma": false,
+=======
+    "radix": true,
+    "semicolon": [
+      true,
+      "always"
+    ],
+    "triple-equals": [
+      true,
+      "allow-null-check"
+    ],
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      }
+    ],
+    "unified-signatures": true,
+    "variable-name": false,
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-type"
+    ],
+    "directive-selector": [
+      true,
+      "attribute",
+      "app",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "app",
+      "kebab-case"
+    ],
+>>>>>>> 0f8111293c522a76e4ccad0b0a175c57078ce48b
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,

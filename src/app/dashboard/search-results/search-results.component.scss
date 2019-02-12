@@ -1,0 +1,61 @@
+.scroll-wrapper {
+  padding: 0 15px;
+  height: calc(100vh - 276px);
+  overflow: hidden;
+  overflow-y: scroll;
+  @media (max-width: 1200px){
+    height: calc(100vh - 374px);
+  }
+  @media (max-width: 1100px){
+    height: calc(100vh - 323px);
+  }
+}
+.card-view{
+  margin-left: 0;
+  margin-right: 0;
+}
+.panel-heading{
+  .panel-title{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+}
+.iccid-num, .country-name, .refresh-time{
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+.client-name{
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.table-wrap {
+  .table-header{
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: 12px;
+  }
+  .sms-link {
+    a {
+      text-decoration: underline;
+      color: #D6498B;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+  }
+  tbody {
+    tr {
+      &:hover, &:active, &:visited {
+        .sms-link {
+          a {
+            color: #9F325B;
+            }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,55 @@
+.page-wrapper {
+  //position: fixed;
+  //top: 0;
+  //left: 0;
+  //right: 0;
+  //bottom: 0;
+  position: relative;
+  padding: 20px;
+  height: calc(100vh - 55px);
+  overflow: hidden;
+  background-color: #fff;
+  .scroll_col {
+    height: calc(100vh - 250px);
+    overflow: hidden;
+    overflow-y: scroll;
+    .panel-body {
+      padding: 0 15px;
+    }
+  }
+  .panel-heading {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 15px;
+  }
+}
+.under-line {
+  text-decoration: underline;
+}
+
+.page-border{
+  border: 2px solid #d3d3d3;
+}
+
+.pagination{
+   float:left;
+  a {
+    border-radius: 0 !important;
+    border: 0 !important;
+    color:#d3d3d3 !important;
+  }
+}
+
+.panel-heading:after {
+  clear: both;
+  contain: '';
+  display: block;
+}
+.card-view {
+  border: 1px solid #dcdcdc;
+  padding-bottom: 10px;
+}
+

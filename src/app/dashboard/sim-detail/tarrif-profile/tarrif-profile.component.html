@@ -1,0 +1,35 @@
+
+<div class="table-wrap">
+    <div class="container tarrif-profile-container" *ngFor="let tariffProfile of tariffProfileArray">
+      <div class="row">
+        <div class="col-md-8">
+          <table class="table mb-0 table-responsive">
+            <thead>
+              <tr>
+                <th>Rate Zone</th>
+                <th><div class="region-heading">{{tariffProfile.rateZone}}</div></th>
+                <th></th>
+                <!-- <th>Available Operators</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let service of tariffProfile.services">
+                <td>{{service.type}}</td>
+                <td>{{service.tariffRate }}</td>
+                <td>{{service.unit}}</td>
+                <!-- <td>Telestra</td> -->
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-4 mb-0 " >
+          <span class="operator-title">Available Operators</span>
+          <ul>
+            <li class="operator-desc" *ngFor="let operator of tariffProfile.operators">
+              <span>{{operator}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>

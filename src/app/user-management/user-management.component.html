@@ -1,0 +1,83 @@
+<div class="page-wrapper">
+<ng4-loading-spinner> </ng4-loading-spinner>
+<div class="col-sm-12">
+  <div class="panel panel-default card-view">
+    <div class="panel-heading">
+      <h6 class="panel-title txt-dark">Agents</h6>
+      <button (click)="openAddAgentModal(addAgent)"  class="btn btn-primary">
+        <i class="ti-plus"></i>
+        <span class="user-add">Add User</span>
+      </button>
+    </div>
+
+    <div class="panel-wrapper collapse in scroll_col row">
+      <div class="panel-body">
+        <div class="table-wrap">
+          <div class="table-responsive">
+            <table class="table mb-1">
+              <thead>
+                <tr>
+                  <th>
+                    Name
+                  </th>
+                  <th>
+                    Email
+                  </th>
+                  <th>
+                    Phone
+                  </th>
+                  <th>
+                    Last Updated
+                  </th>
+                  <th>
+                    Last Log In
+                  </th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of currentPageUsers ; let i = index ">
+                    <td>
+                      <span>{{user.firstName}}</span>
+                    </td>
+                    <td>
+                      <span>{{user.email}}</span>
+                    </td>
+                    <td>
+                      <span>{{user.phone}}</span>
+                    </td>
+                    <td>
+                      <span>{{user.updatedDate | amLocale:'en' | amDateFormat:'MMMM Do, YYYY' }}</span>
+                    </td>
+                    <td>
+                      <span>{{user.lastLoginDate | amTimeAgo:true}}</span>
+                    </td>
+                    <td>
+                      <a  class="under-line" (click)="openEditAgentModal(editAgent,user,i)" href="javascript:void(0)">Edit</a>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pager">
+      <span *ngIf="users.length">{{ currentPage + 1 }}/{{ getTotalPages() }}</span>
+      <div class="pagination-wrapper">
+        <pagination [totalItems]="totalUsers" [itemsPerPage]="pageLimit"  [maxSize]="1" (pageChanged)="pageChanged($event)" class="pagination-list"></pagination>
+      </div>
+    </div>
+</div>
+</div>
+</div>
+
+<!--- add agent modal -->
+  <div  bsModal #addAgent="bs-modal" [config]="{backdrop: true}"  class="modal fade" tabindex="-1" role="dialog"  aria-hidden="true"  >
+      <app-user-profile-modal (valueChange)="addAgentInfo($event)"  [userInfo]="addAgent"  [userData]="addagentData"  ></app-user-profile-modal>
+  </div>
+
+<!--- edit agent modal -->
+<div  bsModal #editAgent="bs-modal" [config]="{backdrop: true}"  class="modal fade" tabindex="-1" role="dialog"  aria-hidden="true"  >
+    <app-user-profile-modal (blockUser)="updateUserStatus($event)" (valueChange)="editAgentInfo($event)" [userInfo]="editAgent"  [userData]="editAgentData"  ></app-user-profile-modal>
+</div>

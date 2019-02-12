@@ -27,7 +27,10 @@ speed-measure-plugin.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+<<<<<<< HEAD
 .history/*
+=======
+>>>>>>> 0f8111293c522a76e4ccad0b0a175c57078ce48b
 
 # misc
 /.sass-cache
@@ -39,6 +42,13 @@ yarn-error.log
 testem.log
 /typings
 
+<<<<<<< HEAD
+=======
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+>>>>>>> 0f8111293c522a76e4ccad0b0a175c57078ce48b
 # System Files
 .DS_Store
 Thumbs.db
