@@ -1,0 +1,144 @@
+<div class="page-wrapper">
+    <form class="form-inline">
+        <div class="dropdown-row">
+            <label for="">Select Eid</label>
+            <div class="my-select">
+                <select (change)="selectEid($event.target.value)">
+                    <option disabled> </option>
+                    <option value="11345670">11345670</option>
+                </select>
+            </div>
+        </div>
+    </form>
+    <div class="col-md-12 col-sm-12 block">
+        <div class="blocks-wrapper">
+            <div class="block block-1">
+                <span class="label-text"> eSIM Information </span>
+                <div class="text-border">
+                    <ul>
+                        <li>
+                            <span class="li-holder">
+                                <span> Eid </span>
+                                <span>{{esimObject ? esimObject.eid : '-' }} </span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="li-holder">
+                                <span> ICCID </span>
+                                <span>{{esimObject ? esimObject.iccid : '-'}} </span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="li-holder">
+                                <span> MNO </span>
+                                <span>{{esimObject ? esimObject.mno : '-'}} </span>
+                            </span>
+                        </li>
+
+                        <li>
+                            <span class="li-holder">
+                                <span>Last esim updated </span>
+                                <span> {{ profileSwitch ? (nowDate | date: 'short') : '' }} </span>
+                            </span>
+                        </li>
+                    </ul>
+                    <button [disabled]="enableSwitchBtn" [ngClass]="{'disbale-btn':enableSwitchBtn}" (click)="enableSwitch = false" class="btn-profile">ENABLE eSIM SWITCH</button>
+                </div>
+            </div>
+            <div class="block block-2">
+                <span class="label-text"> Device Information </span>
+                <div class="text-border">
+                    <!-- <ul>
+                            <li>
+                                <span class="li-holder">
+                                    <span>model </span>
+                                    <span>Google 2px solid </span>
+                                </span>
+                            </li>
+                        </ul> -->
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-sm-12">
+        <div class="table-block">
+            <div class="table-wrap col-md-9">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>
+
+                                </th>
+                                <th>
+                                    <i class="table-header"> ICCID</i>
+                                </th>
+                                <th>
+                                    <i class="table-header">MNO</i>
+                                </th>
+                                <th>
+                                    <i class="table-header">Status</i>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let esim of esimData ">
+                                <td>
+                                    <input [disabled]="enableSwitch" name="switch" [value]="esim?.id" [checked]="esim?.state === 'Enabled'" (change)="changeStatus(esim?.id)"
+                                        type="radio">
+                                </td>
+                                <td>
+                                    {{esim?.iccid}}
+                                </td>
+                                <td>
+                                    {{esim?.mno}}
+                                </td>
+                                <td>
+                                    {{esim?.state}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-3 switch-profile">
+                <button [disabled]="enableSwitch" [ngClass]="{'disbale-btn':enableSwitch}" (click)="openModal(template)" class="btn-profile">Switch Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+
+
+        <ng-template #template>
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">Confirmation Message</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Click Yes to continue with eSim profile change
+                <div>
+                    <button type="button" class="" (click)="openModal2(templateNested)">yes</button>
+                </div>
+            </div>
+        </ng-template>
+
+        <ng-template #templateNested>
+            <div class="modal-header">
+                <h4 class="modal-title pull-left">SUCCESS</h4>
+                <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef2.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                eSIM profile changed
+                <br>
+                <button *ngIf="modalRef" type="button" (click)="switchProfile(template)">OK</button>
+            </div>
+        </ng-template>

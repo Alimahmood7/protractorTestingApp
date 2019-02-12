@@ -1,0 +1,33 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="nav_holder">
+    <div class="nav-header ">
+      <strong class="logo-wrap">
+        <a routerLink="/">
+          <img class="img-responsive" src="assets/images/logo-telus.svg" alt="logo">
+        </a>
+      </strong>
+      <span class="centered hidden-xs">
+        <span>TELUS GLOBAL CONNECT</span>
+      </span>
+    </div>
+    <div class="user_area" *ngIf="router.url === '/dashboard'">
+      <strong class="user_name">Martin</strong>
+      <ul class="nav navbar-right top-nav">
+        <li dropdown class="dropdown auth-drp">
+          <a dropdownToggle href="javascript:void(0)" class="dropdown-toggle pr-0">
+            <img src="/assets/images/LoginIcon.png" alt="user_auth" class="user-auth-img img-responsive">
+            <!-- <span class="user-online-status"></span> -->
+          </a>
+          <ul *dropdownMenu class="dropdown-menu user-auth-dropdown">
+            <li>
+              <a (click)="logout()" href="javascript:void(0)">
+                <i class="icon-logout1"></i>
+                <span>Log Out</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

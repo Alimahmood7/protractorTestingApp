@@ -1,0 +1,81 @@
+<!-- <app-navbar></app-navbar> -->
+
+<div class="login-frames">
+  <div class="login_holder">
+    <h1 class="section-heading" *ngIf="!showPassword">
+      <span>
+        <img src="/assets/images/LoginIcon.png" alt="">
+      </span>TGC Login Portal</h1>
+    <div class="login-section">
+      <div class="col-xs-12 col-md-6 col-lg-6">
+        <h2 class="panel-title">{{ showPassword ? 'Enter Password To Continue' : 'Let’s Get Started' }}</h2>
+        <div *ngIf="!showPassword">
+          <form [formGroup]="usernameForm">
+            <div class="form-group">
+              <label class="control-label mb-10" for="email_de">
+                <span> Log In</span>
+              </label>
+              <input type="email" formControlName="username" placeholder="Enter your Login ID here" class="form-control" id="email_de"
+                name="UserName">
+            </div>
+            <div *ngIf="showPassword">
+              <div class="form-group">
+                <label class="control-label mb-10" for="password">
+                  <span>Password</span>
+                </label>
+                <input [type]="showPasswordType ? 'text' : 'password'" formControlName="password" placeholder="Enter Password" class="form-control"
+                  id="passwordInput" name="password">
+                <input class="passwordShowHideBtn" id="passwordInputButton" (click)="showPasswordType=!showPasswordType" [value]="showPasswordType ? 'Hide' : 'Show' "
+                  type="button">
+              </div>
+              <div class="remember-me">
+                <input type="checkbox" name="rememberPassword" id="rememberPasswordCheckbox">
+                <label for="rememberPasswordCheckbox">Keep me logged in</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="submit" [disabled]="!usernameForm.valid" (click)="onLoginSubmit()" class="btn btn-success">
+                <span class="btn-text">Continue</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+
+        <div *ngIf="showPassword" class="password-form">
+          <form [formGroup]="passwordForm" name="passwordForm">
+
+            <div class="form-group">
+              <label class="control-label mb-10" for="email_de">
+                <span>Password</span>
+              </label>
+              <input [type]="showPasswordType ? 'text' : 'password'" formControlName="password" placeholder="Enter Password" class="form-control"
+                id="passwordInput" name="password">
+              <input class="passwordShowHideBtn" id="passwordInputButton" (click)="showPasswordType=!showPasswordType" [value]="showPasswordType ? 'Hide' : 'Show' "
+                type="button">
+            </div>
+            <div *ngIf="invalid" style="color:red">
+              <p> Enter valid login credential
+                <span>
+                  <a href="javascript:void(0)" (click)="goBack()">Go Back To Login</a>
+                </span>
+              </p>
+            </div>
+            <div class="remember-me">
+              <input type="checkbox" name="rememberPassword" id="rememberPasswordCheckbox">
+              <label for="rememberPasswordCheckbox">Keep me logged in</label>
+            </div>
+            <div class="form-group">
+              <button type="submit" [disabled]="!passwordForm.valid" (click)="navigate()" class="btn btn-success">
+                <span class="btn-text">Continue</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-6">
+        <img class="img-responsive" src="/assets/images/Login-img.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>

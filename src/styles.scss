@@ -1,1 +1,321 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+.draggable_box {
+  .nav-tabs {
+    width: 100.3%;
+    font-size: 0;
+    margin-left: -1px;
+    .nav-item {
+      display: inline-block;
+      vertical-align: top;
+      width: 25%;
+      margin: 0;
+      text-align: center;
+      .nav-link {
+        padding:5px;
+        font-size: 12px;
+        color: #212121;
+        background: #F4F4F4;
+        border: 1px solid #DCDCDC;
+        min-height: 40px;
+        display: block;
+        line-height: 30px;
+        &:hover{
+          background: #fff;
+        }
+        &.active {
+          color: #212121;
+          border: 1px solid #fff;
+          background: #fff;
+          text-shadow: 1px 0 0 currentColor;
+        }
+      }
+    }
+  }
+  .tab-content {
+    //height: 60.7vh;
+    height: 510px;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding: 15px 0 0;
+    margin-bottom: 70px;
+    @media (max-height: 700px){
+      //height: 55vh;
+      height: 460px;
+
+    }
+    .tab-pane {
+      padding: 0 !important;
+    }
+  }
+}
+.btn {
+  font-size: 12px;
+  line-height: 15px;
+  padding: 9px 15px;
+  font-weight: 400;
+  border-radius: 0;
+  &.btn-primary {
+    background: #4b286d !important;
+    color: #fff;
+    border: 1px solid #4b286d;
+    min-width: 100px;
+    .ti-plus {
+      color: #fff !important;
+      font-size: 16px !important;
+      margin-right: 10px;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 15px;
+      font-weight: 700;
+    }
+  }
+  &.btn-secondary {
+    background: #4b286d !important;
+    color: #fff;
+    border: 1px solid #4b286d;
+    min-width: 100px;
+  }
+}
+
+.btn-link {
+  color: #000;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+}
+a {
+  color: #D6498B;
+}
+.modal.fade {
+  top: 30%;
+  left: 10%;
+}
+.modal-dialog.seconday-modal {
+  width: 432px;
+}
+.modal-dialog  {
+  width: 562px;
+  .modal-header {
+    padding: 8px 10px;
+    border: 0;
+    display: flex;
+    background-color: green !important;    
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+    &:after, &:before {
+      display: none;
+    }
+    .modal-title {
+      margin: 0;
+      color: #fff;
+      font-size: 16px;
+      text-transform: capitalize;
+      line-height: 1.42857143;
+    }
+    .close {
+      // color:#fff;
+      // margin-top: 0px;
+      // font-size: 20px;
+      // margin-right: 2px;
+      color: #fff;
+      margin-top: 0px;
+      font-size: 25px;
+      margin-right: 2px;
+      font-weight: 200;
+      opacity: 1;
+      height: 25px;
+      line-height: 10px;
+      margin-top: -5px;
+    }
+  }
+  .modal-body {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 21px;
+    text-align: center;
+    background-color: #DCDEE0;
+    button {
+      background-color: #248700;
+      border: 1px solid #248700;
+      color: #FFFFFF;
+      margin: 20px 0 8px 10px;
+      padding: 9px 20px;
+      font-weight: 500;
+      font-family: Helvetica Neue;
+      line-height: 1;
+      border-radius: 2px;
+      font-size: 16px;
+    }
+    .control-label {
+      text-transform: capitalize;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1;
+      margin: 0 0 9px 1px !important;
+    }
+    .form-control {
+      border: 1px solid #DCDCDC;
+      height: 37px;
+      box-shadow: none;
+    }
+    .form-group {
+      margin-bottom: 13px;
+      .input-group {
+        width: 100%;
+        display: block;
+        overflow: hidden;
+        font-size: 16px;
+        input {
+          padding-right: 70px;
+        }
+        button {
+          background-color: #248700;
+          border: 1px solid #177A00;
+          color:#FFFFFF;
+          border: 0;
+          padding: 0;
+          font-size: 12px;
+          position: absolute;
+          right: 1px;
+          top: 1px;
+          margin: 0;
+          z-index: 9;
+          width: 60px;
+          bottom: 1px;
+          line-height: 37px;
+          text-align: center;
+          display: block;
+          text-decoration: underline;
+          &:hover {
+            background: #dcdcdc;
+            text-decoration: none;
+          }
+        }
+      }
+      &.cta_holder {
+        text-align: right;
+        padding: 25px 0 0;
+        button + button {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+.log-wrapper{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px 15px 11px 8px;
+  margin: 0;
+  border-top: 1px solid #DCDCDC;
+  &:first-child{
+    border:0;
+  }
+  .log-text-holder{
+    .event-heading{
+      font-size: 12px;
+      line-height: 1.2;
+      font-weight: 700;
+      padding: 0 8px 0 0;
+    }
+    .desc{
+      word-break: break-all;
+      font-size: 12px;
+      line-height: 1.2;
+      font-weight: 400;
+    }
+  }
+  .icon-holder{
+    min-width: 40px;
+    .label{
+      width: 20px;
+      height: 20px;
+      font-family: 'telus-icons' !important;
+      line-height: 20px;
+      padding: 0;
+      display: block;
+      background: #F8B32D;
+      color: #fff;
+      font-size: 10px;
+      &.icon-event-info{
+        background-color: #f8b32d;
+        font-size: 16px;
+        &:before{
+          content: "\e900";
+        }
+      }
+      &.icon-event-sms{
+        background-color: #0098a3;
+        font-size: 8px;
+        &:before{
+          content: "\e901";
+        }
+      }
+      &.icon-event-locked{
+        background-color: #f33923;
+        font-size: 11px;
+        &:before{
+          content: "\e902";
+        }
+      }
+      &.icon-event-danger{
+        background-color: #f33923;
+        font-size: 9px;
+        line-height: 22px;
+        &:before{
+          content: "\e904";
+        }
+      }
+    }
+  }
+}
+.pager{
+  overflow: hidden;
+  margin: 0 -15px;
+  padding: 15px 15px 5px;
+  border-top: 1px solid #ccc;
+  span {
+    float: left;
+    color: #252525;
+  }
+  .pagination-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    float:right;
+    .pagination-list{
+      margin: 0 -15px;
+      li{
+        display: inline-block;
+        vertical-align: middle;
+        .page-link{
+          border: none;
+          background: none;
+          margin: 0 15px;
+          a {
+            padding: 0;
+          }
+        }
+      }
+  }
+
+  }
+.pagination > li > a{
+  color: #252525;
+}
+.pagination>.active>a{
+  color: #999;
+  }
+  .pagination > .disabled > a, .pagination > .disabled > a:focus, .pagination > .disabled > a:hover, .pagination > .disabled > span, .pagination > .disabled > span:focus, .pagination > .disabled > span:hover{
+    color: #c7c7c7;
+  }
+}
+.spinner {
+  z-index: 99999 !important;
+}
+
